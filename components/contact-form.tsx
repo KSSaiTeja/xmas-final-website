@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -44,36 +45,39 @@ export function ContactForm({ onSubmit }: { onSubmit: () => void }) {
     if (storedData) {
       const parsedData = JSON.parse(storedData);
       form.reset(parsedData);
+      onSubmit(); // Immediately call onSubmit if data exists
     }
-  }, [form]);
+  }, [form, onSubmit]);
 
-  function handleSubmit(values: z.infer<typeof formSchema>) {
+  async function handleSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     setErrorMessage(null);
 
-    // Check if email or phone already exists in local storage
-    const storedData = localStorage.getItem("christmasFormData");
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      if (
-        parsedData.email === values.email ||
-        parsedData.phone === values.phone
-      ) {
-        setErrorMessage(
-          "You have already participated. Thank you for your interest!",
-        );
-        setIsLoading(false);
-        return;
-      }
-    }
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log(values);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "An error occurred");
+      }
+
       localStorage.setItem("christmasFormData", JSON.stringify(values));
+      localStorage.setItem("christmasEntryId", data.entryId.toString());
       setIsLoading(false);
-      onSubmit(); // Call the onSubmit prop when the form is submitted
-    }, 2000); // 2 seconds delay to simulate API call
+      onSubmit();
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error ? error.message : "An error occurred",
+      );
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -145,7 +149,9 @@ export function ContactForm({ onSubmit }: { onSubmit: () => void }) {
           )}
         />
         {errorMessage && (
-          <div className="text-red-500 text-sm font-medium">{errorMessage}</div>
+          <div className="text-red-500 text-sm font-medium text-center">
+            {errorMessage}
+          </div>
         )}
         <Button
           type="submit"
