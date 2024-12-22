@@ -79,16 +79,16 @@ export default function Home() {
           <div className="flex gap-4 mb-4">
             {[
               {
-                name: "Facebook",
-                url: "http://awesome-coding.com/theme/images/icons/facebook.png",
+                name: "Youtube",
+                url: "/public/icons/Youtube.svg",
               },
               {
-                name: "Twitter",
-                url: "http://awesome-coding.com/theme/images/icons/twitter.png",
+                name: "LinkedIn",
+                url: "/public/icons/LinkedIn.svg",
               },
               {
                 name: "Instagram",
-                url: "http://awesome-coding.com/theme/images/icons/instagram.png",
+                url: "/public/icons/Instagram.svg",
               },
             ].map((social) => (
               <a

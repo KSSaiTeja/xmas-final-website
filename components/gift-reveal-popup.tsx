@@ -91,35 +91,35 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                     </p>
                     <div className="flex justify-center gap-6">
                       <a
-                        href="#"
+                        href="https://www.youtube.com/c/savart"
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="http://awesome-coding.com/theme/images/icons/facebook.png"
-                          alt="Facebook"
+                          src="/public/icons/Youtube.svg"
+                          alt="Youtube"
                           width={32}
                           height={32}
                           className="w-8 h-8"
                         />
                       </a>
                       <a
-                        href="#"
+                        href="https://www.linkedin.com/company/savarthq/"
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="http://awesome-coding.com/theme/images/icons/twitter.png"
-                          alt="Twitter"
+                          src="/public/icons/Linkedin.svg"
+                          alt="LinkedIn"
                           width={32}
                           height={32}
                           className="w-8 h-8"
                         />
                       </a>
                       <a
-                        href="#"
+                        href="https://www.instagram.com/savart.hq/?hl=en"
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="http://awesome-coding.com/theme/images/icons/instagram.png"
+                          src="/public/icons/Instagram.svg"
                           alt="Instagram"
                           width={32}
                           height={32}
@@ -135,6 +135,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
         )}
       </AnimatePresence>
     ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isOpen, gift, position],
   );
 };

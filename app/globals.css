@@ -74,19 +74,19 @@ body {
 }
 
 .layer-1 {
-  background-image: url("http://awesome-coding.com/theme/images/parallax/layer1.png");
+  background-image: url("/public/bg/layer1.png");
 }
 .layer-2 {
-  background-image: url("http://awesome-coding.com/theme/images/parallax/layer2.png");
+  background-image: url("/public/bg/layer2.png");
 }
 .layer-3 {
-  background-image: url("http://awesome-coding.com/theme/images/parallax/layer3.png");
+  background-image: url("/public/bg/layer3.png");
 }
 .layer-4 {
-  background-image: url("http://awesome-coding.com/theme/images/parallax/layer4.png");
+  background-image: url("/public/bg/layer4.png");
 }
 .layer-5 {
-  background-image: url("http://awesome-coding.com/theme/images/parallax/layer5.png");
+  background-image: url("/public/bg/layer5.png");
 }
 
 .glass-form {
@@ -99,19 +99,19 @@ body {
 
 @media (max-width: 1024px) {
   .layer-1 {
-    background-image: url("http://awesome-coding.com/theme/images/parallax-mobile/layer1.png");
+    background-image: url("/public/bg-mobile/layer1.png");
   }
   .layer-2 {
-    background-image: url("http://awesome-coding.com/theme/images/parallax-mobile/layer2.png");
+    background-image: url("/public/bg-mobile/layer2.png");
   }
   .layer-3 {
-    background-image: url("http://awesome-coding.com/theme/images/parallax-mobile/layer3.png");
+    background-image: url("/public/bg-mobile/layer3.png");
   }
   .layer-4 {
-    background-image: url("http://awesome-coding.com/theme/images/parallax-mobile/layer4.png");
+    background-image: url("/public/bg-mobile/layer4.png");
   }
   .layer-5 {
-    background-image: url("http://awesome-coding.com/theme/images/parallax-mobile/layer5.png");
+    background-image: url("/public/bg-mobile/layer5.png");
   }
 }
 
