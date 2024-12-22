@@ -49,16 +49,21 @@ export default function Home() {
               lineHeight: "1.3",
             }}
           >
-            Merry Christmas
-            <br />
-            &
-            <br />
-            Happy New Year
+            <span className="md:hidden">
+              Merry Christmas
+              <br />
+              &
+              <br />
+              Happy New Year
+            </span>
+            <span className="hidden md:inline">
+              Merry Christmas & Happy New Year
+            </span>
           </h1>
 
           <div className="flex-1 flex flex-col items-center justify-center w-full max-w-[95vw] px-4 py-4">
             <div className="relative flex flex-col items-center">
-              <div className="relative w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px] aspect-[2/3] mb-8">
+              <div className="relative w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] aspect-[2/3] mb-8">
                 {!isSubmitted && (
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-4">
                     <SpeechBubble />

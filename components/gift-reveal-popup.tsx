@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
@@ -20,6 +19,7 @@ interface GiftRevealPopupProps {
 
 const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
   gift,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   permanent = false,
   position = { x: 0.5, y: 0.6 },
 }) => {
@@ -30,7 +30,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
     confetti({
       particleCount: 100,
       spread: 70,
-      origin: position,
+      origin: { y: 0.3, x: 0.5 }, // Center horizontally and position above the card
     });
   }, [position]);
 

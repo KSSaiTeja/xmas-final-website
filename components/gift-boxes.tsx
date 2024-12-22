@@ -5,7 +5,7 @@ import { GiftBox } from "./gift-box";
 import dynamic from "next/dynamic";
 
 const GiftRevealPopup = dynamic(() => import("./gift-reveal-popup"), {
-  loading: () => <p> </p>,
+  loading: () => <p>Loading...</p>,
 });
 
 const offers = [
@@ -114,14 +114,14 @@ export function GiftBoxes() {
   }
 
   return (
-    <div ref={containerRef} className="w-full max-w-7xl mx-auto px-4 pt-4 pb-4">
-      <h2 className="text-2xl font-bold text-white text-center mb-20">
+    <div ref={containerRef} className="w-full max-w-7xl mx-auto px-4 pt-4 pb-8">
+      <h2 className="text-2xl font-bold text-white text-center mb-16">
         Choose Your Gift!
       </h2>
       {errorMessage && (
         <div className="text-red-500 text-center mb-4">{errorMessage}</div>
       )}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-28 md:gap-x-20 lg:gap-x-32 justify-items-center">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-20 md:gap-x-16 lg:gap-x-24 justify-items-center">
         {shuffledOffers.map((offer, index) => (
           <div key={index} className="w-full flex items-center justify-center">
             <GiftBox
