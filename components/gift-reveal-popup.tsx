@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
@@ -18,7 +20,6 @@ interface GiftRevealPopupProps {
 
 const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
   gift,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   permanent = false,
   position = { x: 0.5, y: 0.6 },
 }) => {
@@ -55,7 +56,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                     transition={{ delay: 0.2 }}
                   >
                     <h3 className="text-3xl font-bold text-red-600">
-                      Congratulations! 🎉
+                      🎅 Ho Ho Ho!
                     </h3>
                     <p className="text-gray-600 mt-2">
                       You&apos;ve unwrapped your special gift
@@ -69,9 +70,11 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                     className="p-6 bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl border border-red-100"
                   >
                     <div className="text-5xl font-bold text-red-600 mb-2">
-                      ₹{amount}
+                      ₹{amount} OFF
                     </div>
-                    <p className="text-xl text-red-800">off on savartx</p>
+                    <p className="text-xl text-red-800">
+                      on Savart subscription
+                    </p>
                   </motion.div>
                 </div>
 
@@ -82,8 +85,8 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                   className="space-y-4"
                 >
                   <p className="text-gray-600">
-                    Thanks for participating! Our representative will contact
-                    you soon.
+                    Your investment Santa advises you to develop the habit of
+                    investing next year!
                   </p>
                   <div className="pt-4 border-t border-gray-100">
                     <p className="text-gray-600 mb-4">
@@ -95,7 +98,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/icons/Youtube.svg"
+                          src="/icons/Youtube.svg"
                           alt="Youtube"
                           width={32}
                           height={32}
@@ -107,7 +110,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/icons/Linkedin.svg"
+                          src="/icons/Linkedin.svg"
                           alt="LinkedIn"
                           width={32}
                           height={32}
@@ -119,7 +122,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/icons/Instagram.svg"
+                          src="/icons/Instagram.svg"
                           alt="Instagram"
                           width={32}
                           height={32}
@@ -129,13 +132,15 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                     </div>
                   </div>
                 </motion.div>
+                <p className="text-xs text-gray-500">
+                  *Terms and conditions apply
+                </p>
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
     ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isOpen, gift, position],
   );
 };

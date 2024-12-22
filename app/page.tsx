@@ -41,17 +41,24 @@ export default function Home() {
       <SnowEffect />
       <Logo />
       <ParallaxScene>
-        <main className="relative flex flex-col items-center z-10 min-h-screen py-12">
+        <main className="relative flex flex-col items-center z-10 min-h-screen py-8">
           <h1
-            className="font-great-vibes text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white text-center mt-6 sm:mt-8"
-            style={{ textShadow: "3px 3px 6px rgba(0,0,0,0.3)" }}
+            className="font-great-vibes text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white text-center mt-16 sm:mt-20 mx-4 mb-8"
+            style={{
+              textShadow: "3px 3px 6px rgba(0,0,0,0.3)",
+              lineHeight: "1.3",
+            }}
           >
             Merry Christmas
+            <br />
+            &
+            <br />
+            Happy New Year
           </h1>
 
-          <div className="flex-1 flex flex-col items-center justify-center w-full max-w-[95vw] px-4 py-8">
+          <div className="flex-1 flex flex-col items-center justify-center w-full max-w-[95vw] px-4 py-4">
             <div className="relative flex flex-col items-center">
-              <div className="relative w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px] aspect-[2/3] mb-12">
+              <div className="relative w-[200px] sm:w-[240px] md:w-[280px] lg:w-[320px] aspect-[2/3] mb-8">
                 {!isSubmitted && (
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-4">
                     <SpeechBubble />
@@ -80,20 +87,25 @@ export default function Home() {
             {[
               {
                 name: "Youtube",
-                url: "/public/icons/Youtube.svg",
+                url: "/icons/Youtube.svg",
+                href: "https://www.youtube.com/c/savart",
               },
               {
                 name: "LinkedIn",
-                url: "/public/icons/LinkedIn.svg",
+                url: "/icons/LinkedIn.svg",
+                href: "https://www.linkedin.com/company/savarthq/",
               },
               {
                 name: "Instagram",
-                url: "/public/icons/Instagram.svg",
+                url: "/icons/Instagram.svg",
+                href: "https://www.instagram.com/savart.hq/?hl=en",
               },
             ].map((social) => (
               <a
                 key={social.name}
-                href="#"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="opacity-80 hover:opacity-100 transition-opacity"
               >
                 <Image
