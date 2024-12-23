@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
@@ -15,6 +14,7 @@ interface GiftRevealPopupProps {
   gift: string;
   permanent?: boolean;
   position?: Position;
+  isLoading?: boolean;
 }
 
 const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
@@ -22,6 +22,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   permanent = false,
   position = { x: 0.5, y: 0.6 },
+  isLoading = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -69,12 +70,20 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                     transition={{ delay: 0.4 }}
                     className="p-6 bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl border border-red-100"
                   >
-                    <div className="text-5xl font-bold text-red-600 mb-2">
-                      ₹{amount} OFF
-                    </div>
-                    <p className="text-xl text-red-800">
-                      on Savart subscription
-                    </p>
+                    {isLoading ? (
+                      <div className="text-3xl font-bold text-red-600 mb-2">
+                        Loading your gift...
+                      </div>
+                    ) : (
+                      <>
+                        <div className="text-5xl font-bold text-red-600 mb-2">
+                          ₹{amount} OFF
+                        </div>
+                        <p className="text-xl text-red-800">
+                          on Savart subscription
+                        </p>
+                      </>
+                    )}
                   </motion.div>
                 </div>
 
@@ -141,7 +150,8 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
         )}
       </AnimatePresence>
     ),
-    [isOpen, gift, position],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isOpen, gift, position, isLoading],
   );
 };
 

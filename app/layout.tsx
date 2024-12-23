@@ -21,8 +21,16 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Christmas Landing Page",
-  description: "A magical Christmas experience",
+  title: "Savart Santa",
+  description: "Unwrap your special gift from Savart Santa",
+  icons: [
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      sizes: "32x32",
+      url: "/logo.ico",
+    },
+  ],
 };
 
 export default function RootLayout({

@@ -63,7 +63,7 @@ export default function Home() {
 
           <div className="flex-1 flex flex-col items-center justify-center w-full max-w-[95vw] px-4 py-4">
             <div className="relative flex flex-col items-center">
-              <div className="relative w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] aspect-[2/3] mb-8">
+              <div className="relative w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] aspect-[2/3] mb-4">
                 {!isSubmitted && (
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full mb-4">
                     <SpeechBubble />

@@ -3,17 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import { GiftBox } from "./gift-box";
 import dynamic from "next/dynamic";
+import { offers } from "@/config/offers";
 
 const GiftRevealPopup = dynamic(() => import("./gift-reveal-popup"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <p> </p>,
 });
-
-const offers = [
-  { discount: 2000, probability: 0.4 },
-  { discount: 2500, probability: 0.2 },
-  { discount: 1000, probability: 0.2 },
-  { discount: 500, probability: 0.2 },
-];
 
 function shuffleArray<T>(array: T[]): T[] {
   const newArray = [...array];
@@ -64,29 +58,43 @@ export function GiftBoxes() {
     setSelectedBoxPosition(position);
     setHasSelected(true);
 
+    // Optimistically select an offer
+    const selectedDiscount = shuffledOffers[index].discount;
+    const instantOffer = `₹${selectedDiscount}`;
+    setSelectedOffer(instantOffer);
+    localStorage.setItem("christmasSelectedOffer", instantOffer);
+    localStorage.setItem("christmasSelectedPosition", JSON.stringify(position));
+
     try {
       const entryId = localStorage.getItem("christmasEntryId");
       if (!entryId) {
         throw new Error("No entry found. Please fill the form first.");
       }
 
-      const selectedDiscount = shuffledOffers[index].discount;
-      const instantOffer = `₹${selectedDiscount}`;
-      setSelectedOffer(instantOffer);
-      localStorage.setItem("christmasSelectedOffer", instantOffer);
-      localStorage.setItem(
-        "christmasSelectedPosition",
-        JSON.stringify(position),
-      );
-
       // Perform the API call asynchronously without waiting for the response
-      fetch("/api/select-gift", {
+      const response = await fetch("/api/select-gift", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ entryId: parseInt(entryId), selectedDiscount }),
-      }).catch((error) => console.error("Error selecting gift:", error));
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to select gift");
+      }
+
+      const data = await response.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      // If the server returns a different offer, update it silently
+      if (data.gift !== instantOffer) {
+        setSelectedOffer(data.gift);
+        localStorage.setItem("christmasSelectedOffer", data.gift);
+      }
     } catch (error) {
       console.error("Error selecting gift:", error);
       setErrorMessage(
@@ -94,10 +102,7 @@ export function GiftBoxes() {
           ? error.message
           : "An error occurred. Please try again.",
       );
-      setHasSelected(false);
-      setSelectedOffer(null);
-      localStorage.removeItem("christmasSelectedOffer");
-      localStorage.removeItem("christmasSelectedPosition");
+      // In case of error, we keep the optimistically selected offer
     }
   };
 
@@ -126,7 +131,7 @@ export function GiftBoxes() {
           <div key={index} className="w-full flex items-center justify-center">
             <GiftBox
               onOpen={(element) => handleGiftOpen(index, element)}
-              disabled={hasSelected || !!errorMessage}
+              disabled={hasSelected}
             />
           </div>
         ))}
