@@ -107,7 +107,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/icons/Youtube.png"
+                          src="/icons/Youtube.png"
                           alt="Youtube"
                           width={32}
                           height={32}
@@ -119,7 +119,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/icons/Linkedin.png"
+                          src="/icons/Linkedin.png"
                           alt="LinkedIn"
                           width={32}
                           height={32}
@@ -131,7 +131,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/icons/Instagram.png"
+                          src="/icons/Instagram.png"
                           alt="Instagram"
                           width={32}
                           height={32}
@@ -142,7 +142,8 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                   </div>
                 </motion.div>
                 <p className="text-xs text-gray-500">
-                  *Terms and conditions apply
+                  <span className="text-red-600">*</span>Terms and conditions
+                  apply
                 </p>
               </div>
             </motion.div>
