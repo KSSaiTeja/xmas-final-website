@@ -107,7 +107,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/Icons/Youtube.svg"
+                          src="/icons/Youtube.png"
                           alt="Youtube"
                           width={32}
                           height={32}
@@ -119,7 +119,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/Icons/Linkedin.svg"
+                          src="/icons/Linkedin.png"
                           alt="LinkedIn"
                           width={32}
                           height={32}
@@ -131,7 +131,7 @@ const GiftRevealPopup: React.FC<GiftRevealPopupProps> = ({
                         className="opacity-80 hover:opacity-100 transition-opacity"
                       >
                         <Image
-                          src="/public/Icons/Instagram.svg"
+                          src="/icons/Instagram.png"
                           alt="Instagram"
                           width={32}
                           height={32}

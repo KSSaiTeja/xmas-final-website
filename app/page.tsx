@@ -92,17 +92,17 @@ export default function Home() {
             {[
               {
                 name: "Youtube",
-                url: "/public/Icons/Youtube.svg",
+                url: "/icons/Youtube.png",
                 href: "https://www.youtube.com/c/savart",
               },
               {
                 name: "LinkedIn",
-                url: "/public/Icons/Linkedin.svg",
+                url: "/icons/Linkedin.png",
                 href: "https://www.linkedin.com/company/savarthq/",
               },
               {
                 name: "Instagram",
-                url: "/public/Icons/Instagram.svg",
+                url: "/icons/Instagram.png",
                 href: "https://www.instagram.com/savart.hq/?hl=en",
               },
             ].map((social) => (
