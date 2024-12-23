@@ -6,7 +6,8 @@ import { ParallaxScene } from "@/components/parallax-scene";
 import { SnowEffect } from "@/components/snow-effect";
 import { Logo } from "@/components/logo";
 import Image from "next/image";
-import heroImage from "@/public/hero image.svg";
+// import heroImage from "@/public/hero image.svg";
+import heroImage2 from "@/public/hero image2.svg";
 import { GiftBoxes } from "@/components/gift-boxes";
 import { SpeechBubble } from "@/components/speech-bubble";
 
@@ -70,7 +71,8 @@ export default function Home() {
                   </div>
                 )}
                 <Image
-                  src={heroImage}
+                  // src={heroImage}
+                  src={heroImage2}
                   alt="Christmas Hero"
                   fill
                   className="object-contain"
@@ -92,17 +94,17 @@ export default function Home() {
             {[
               {
                 name: "Youtube",
-                url: "/icons/Youtube.png",
+                url: "/Youtube.png",
                 href: "https://www.youtube.com/c/savart",
               },
               {
                 name: "LinkedIn",
-                url: "/icons/Linkedin.png",
+                url: "/Linkedin.png",
                 href: "https://www.linkedin.com/company/savarthq/",
               },
               {
                 name: "Instagram",
-                url: "/icons/Instagram.png",
+                url: "/Instagram.png",
                 href: "https://www.instagram.com/savart.hq/?hl=en",
               },
             ].map((social) => (
