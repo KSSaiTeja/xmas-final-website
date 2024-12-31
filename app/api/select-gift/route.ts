@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { updateSheet } from "@/lib/googleSheets";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { offers } from "@/config/offers";
 
 const calculateProbability = async () => {
   const [totalEntries, entriesWith2000] = await Promise.all([
